@@ -2,20 +2,28 @@
   <h2 id="staff-heading" class="section-heading">Staff</h2>
 
   <div class="section-body">
-  <ul class="staff-roster" aria-label="Course staff">
     {% if site.data.people.instructor %}
-      {% include staff_card.html person=site.data.people.instructor %}
+      <h3 class="staff-group" id="staff-instructor">Instructor</h3>
+      <ul class="staff-roster" aria-labelledby="staff-instructor">
+        {% include staff_card.html person=site.data.people.instructor hide_role=true %}
+      </ul>
     {% endif %}
-    {% for person in site.data.people.tas %}
-      {% if person.role contains "Head" %}
-        {% include staff_card.html person=person %}
-      {% endif %}
-    {% endfor %}
-    {% for person in site.data.people.tas %}
-      {% unless person.role contains "Head" %}
-        {% include staff_card.html person=person %}
-      {% endunless %}
-    {% endfor %}
-  </ul>
+
+    {% if site.data.people.tas %}
+      <h3 class="staff-group" id="staff-tas">Teaching Assistants</h3>
+      <ul class="staff-roster" aria-labelledby="staff-tas">
+        {% comment %} The head TA keeps a role line; the rest are named by the heading. {% endcomment %}
+        {% for person in site.data.people.tas %}
+          {% if person.role contains "Head" %}
+            {% include staff_card.html person=person %}
+          {% endif %}
+        {% endfor %}
+        {% for person in site.data.people.tas %}
+          {% unless person.role contains "Head" %}
+            {% include staff_card.html person=person hide_role=true %}
+          {% endunless %}
+        {% endfor %}
+      </ul>
+    {% endif %}
   </div>
 </section>

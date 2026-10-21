@@ -10,7 +10,7 @@ permalink: /
     Staff          _data/people.yml
     Course Plan    _data/course_plan.yml
     Assessment     _data/grading.yml
-    AI section      the single sentence near the bottom of this file
+    Academic Honesty  the honor code link near the bottom of this file
 {% endcomment %}
 {% assign plan = site.data.course_plan %}
 {% assign term_year = site.term | split: " " | last %}
@@ -34,7 +34,7 @@ permalink: /
     <a href="#staff">Staff</a>
     <a href="#course-plan">Plan</a>
     <a href="#assessment">Assessment</a>
-    <a href="#ai-policy">AI Use</a>
+    <a href="#ai-policy">Honesty</a>
   </nav>
 
   <!-- Updates (Self-hiding when empty) -->
@@ -78,9 +78,9 @@ permalink: /
   </section>
 
   <section class="home-overview ai-policy" id="ai-policy" aria-labelledby="ai-policy-heading">
-    <h2 id="ai-policy-heading" class="section-heading">Generative AI Usage Policies</h2>
+    <h2 id="ai-policy-heading" class="section-heading">Academic Honesty</h2>
     <div class="section-body">
-      <p class="policy-lead">Students must honor the <a href="https://ac.sharif.edu/rules/ai-ethics" target="_blank" rel="noopener noreferrer">Sharif University code of conduct for AI tools<span class="sr-only"> (opens in a new tab)</span></a>.</p>
+      <p class="policy-lead"><a href="https://ac.sharif.edu/rules/ai-ethics" target="_blank" rel="noopener noreferrer">Sharif University of Technology - CE Department Honor Code<span class="sr-only"> (opens in a new tab)</span></a></p>
     </div>
   </section>
   </div>
