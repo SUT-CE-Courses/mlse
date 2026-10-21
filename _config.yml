@@ -1,0 +1,78 @@
+# SITE SETTINGS. Edit the values below; restart `jekyll serve` after changing this file.
+# Full example of the identity block:
+#   course_name: "Machine Learning Systems Engineering"   # header and home page title
+#   course_code: "MLSE 2026"                              # short name in the header and tab titles
+#   term: "Fall 2026"                                     # under the header; sets the year for dates
+#   meeting_time: "10:30 - 12:30"                         # home page "Time"
+#   location: "CE Building, Room 201"                     # home page "Room"
+#   url: "https://USERNAME.github.io"                     # no trailing slash
+#   baseurl: "/REPO-NAME"                                 # must equal the repository name
+
+# Site Identity
+course_name: "Machine Learning Systems Engineering"
+course_code: "MLSE 2026"
+course_number: "40925"
+credits: 3
+title: "Machine Learning Systems Engineering (MLSE 2026)"
+tagline: "Data, training, deployment, monitoring, and AI agents."
+term: "Fall 2026"
+meeting_time: "13:30 - 15:00"
+location: "CE 402"
+repository: "erfanyeganegi/MLSE2026"
+
+# URL and BaseURL
+# CRITICAL: url must NOT have a trailing slash; baseurl must equal the repo name (/MLSE2026)
+url: "https://erfanyeganegi.github.io"
+baseurl: "/MLSE2026"
+
+# Timezone
+# Explicit timezone prevents UTC build offset bugs shifting dates
+timezone: "Asia/Tehran"
+
+# Markdown and Syntax Highlighting
+markdown: kramdown
+kramdown:
+  input: GFM
+  syntax_highlighter: rouge
+  syntax_highlighter_opts:
+    css_class: "highlight"
+
+# Hand-written CSS / Sass settings
+# Conforms to Ruby Sass 3.7.4 (no @use, no math.div, no map.get, no SCSS min/max)
+sass:
+  sass_dir: _sass
+  style: compressed
+
+# Plugins
+plugins:
+  - jekyll-feed
+  - jekyll-seo-tag
+
+# Content Collections
+collections:
+  lectures:
+    output: false
+  exams:
+    output: false
+
+# Excludes
+# IMPORTANT: Setting exclude: replaces Jekyll defaults. We restate them explicitly.
+exclude:
+  - .sass-cache/
+  - .jekyll-cache/
+  - gemfiles/
+  - Gemfile
+  - Gemfile.lock
+  - node_modules/
+  - vendor/bundle/
+  - vendor/cache/
+  - vendor/gems/
+  - vendor/ruby/
+  - README.md
+  - script/
+  - LICENSE
+  - .git/
+  - .gitignore
+  - .github/
+  - docker-compose.yml
+  - Dockerfile

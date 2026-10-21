@@ -1,0 +1,58 @@
+# STAFF CARDS on the home page. The instructor comes first, then the head TA
+# (any role containing "Head"), then the other TAs in the order listed.
+# Every card links to the person's email.
+#
+# Full example:
+#
+#   instructor:
+#     name: "Maryam Ramezani"
+#     role: "Instructor"
+#     title: "Assistant Professor"      # optional; second line under the role
+#     email: "name@sharif.edu"          # optional; the card becomes a mailto: link
+#     office: "CE821"                   # optional
+#     office_hours: "Sun 10:00-12:00"   # optional
+#     photo: "/assets/images/people/ramezani.jpg"   # optional; initials are shown without it
+#
+#   tas:
+#     - name: "Erfan Yeganegi"
+#       role: "Head Teaching Assistant"
+#       email: "name@example.com"
+#       photo: "/assets/images/people/yeganegi.jpg"
+
+instructor:
+  name: "Maryam Ramezani"
+  role: "Instructor"
+  title: "Assistant Professor"
+  email: "maryam.ramezani@sharif.edu"
+  office: "CE821"
+  photo: "/assets/images/people/ramezani.jpg"
+
+tas:
+  - name: "Erfan Yeganegi"
+    role: "Head Teaching Assistant"
+    email: "yeganegierfan@gmail.com"
+    photo: "/assets/images/people/yeganegi.jpg"
+
+  - name: "Ali Bakhtiari"
+    role: "Teaching Assistant"
+    email: "alibakhtiari6996@gmail.com"
+
+  - name: "Kimia Vanaei"
+    role: "Teaching Assistant"
+    email: "kimiavanaei83@gmail.com"
+
+  - name: "Aida Jalali"
+    role: "Teaching Assistant"
+    email: "aidajalaliii@gmail.com"
+
+  - name: "Mahbod Khaleti"
+    role: "Teaching Assistant"
+    email: "mahbod.kh2005@gmail.com"
+
+  - name: "Seyed Amir Hossein Mousavi Fard"
+    role: "Teaching Assistant"
+    email: "applest.ariamoosavi@gmail.com"
+
+  - name: "Parham Feizollahi"
+    role: "Teaching Assistant"
+    email: "parhamfaizolahi@gmail.com"

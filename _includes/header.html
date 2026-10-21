@@ -1,0 +1,50 @@
+<header class="site-header" role="banner" id="site-header">
+  <div class="header-inner container">
+    <div class="site-branding">
+      <a href="{{ "/" | relative_url }}" class="site-logo-link" aria-label="Sharif University of Technology - {{ site.course_name }}">
+        <span class="sharif-logo" aria-hidden="true">
+          {% include sharif_logo.html %}
+        </span>
+        <div class="brand-text-block">
+          <span class="brand-uni">Sharif University of Technology</span>
+          <span class="site-name">{{ site.course_name }}</span>
+          <span class="site-name-short" aria-hidden="true">{{ site.course_code }}</span>
+          <span class="brand-term">{{ site.term }}</span>
+        </div>
+      </a>
+    </div>
+
+    <div class="header-actions">
+      <nav id="primary-nav" class="nav-links" aria-label="Main Navigation">
+        <ul class="nav-list">
+          {% for item in site.data.nav %}
+            {% assign is_active = false %}
+            {% if page.url == item.url %}
+              {% assign is_active = true %}
+            {% elsif item.url != "/" and page.url contains item.url %}
+              {% assign is_active = true %}
+            {% endif %}
+            {% assign nav_url = item.url | relative_url %}
+            {% if page.url == "/" and item.url contains "#" %}
+              {% assign nav_fragment = item.url | split: "#" | last %}
+              {% assign nav_url = "#" | append: nav_fragment %}
+            {% endif %}
+            <li class="nav-item">
+              <a href="{{ nav_url }}" class="nav-link{% if is_active %} is-active{% endif %}" {% if is_active %}aria-current="page"{% endif %}>
+                {{ item.title }}
+              </a>
+            </li>
+          {% endfor %}
+        </ul>
+      </nav>
+
+      <button type="button" id="nav-toggle" class="btn-nav-toggle" aria-expanded="false" aria-controls="primary-nav" aria-label="Open menu">
+        <span class="hamburger-box" aria-hidden="true">
+          <span class="hamburger-bar"></span>
+          <span class="hamburger-bar"></span>
+          <span class="hamburger-bar"></span>
+        </span>
+      </button>
+    </div>
+  </div>
+</header>

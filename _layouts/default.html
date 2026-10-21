@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<html lang="en">
+  {% include head.html %}
+  <body id="top" class="{% if page.url == '/' or page.url == '/index.html' %}page-home{% else %}page-inner{% endif %}">
+    <a class="skip-link" href="#main-content">Skip to main content</a>
+
+    {% include header.html %}
+
+    <main id="main-content" class="site-main" role="main" tabindex="-1">
+      {{ content }}
+    </main>
+
+    {% include footer.html %}
+
+    <script src="{{ "/assets/js/main.js" | relative_url }}"></script>
+  </body>
+</html>

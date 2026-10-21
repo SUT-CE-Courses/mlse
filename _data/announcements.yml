@@ -1,0 +1,13 @@
+# UPDATES on the home page. The section is hidden when this list is empty.
+# Newest first.
+#
+# Full example:
+#
+#   - date: "2026-10-20"              # YYYY-MM-DD
+#     title: "Midterm date announced" # headline
+#     content: "Wednesday 2 December, 09:00." # optional text under the headline
+#     url: "/homework/"            # optional; makes the headline a link
+
+- date: "2026-10-20"
+  title: "WELCOME TO MLSE 2026!"
+  content: "Please join the course's Quera page."

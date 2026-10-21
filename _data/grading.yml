@@ -1,0 +1,17 @@
+# GRADE SPLIT: the bar on the Homework & Exams page and the Assessment list on the home page.
+#
+# Full example (weights should add up to 100):
+#
+#   - title: "Exams"                  # label
+#     weight: 40                      # percent
+#     summary: "Midterm and final exams."   # kept for reference, not displayed
+
+- title: "EXAMS"
+  weight: 40
+  summary: ""
+- title: "HOMEWORK & PROJECTS"
+  weight: 40
+  summary: ""
+- title: "RESEARCH REPORT"
+  weight: 20
+  summary: ""

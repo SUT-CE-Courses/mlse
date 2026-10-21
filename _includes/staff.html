@@ -1,0 +1,21 @@
+<section class="section-staff" id="staff" aria-labelledby="staff-heading">
+  <h2 id="staff-heading" class="section-heading">Staff</h2>
+
+  <div class="section-body">
+  <ul class="staff-roster" aria-label="Course staff">
+    {% if site.data.people.instructor %}
+      {% include staff_card.html person=site.data.people.instructor %}
+    {% endif %}
+    {% for person in site.data.people.tas %}
+      {% if person.role contains "Head" %}
+        {% include staff_card.html person=person %}
+      {% endif %}
+    {% endfor %}
+    {% for person in site.data.people.tas %}
+      {% unless person.role contains "Head" %}
+        {% include staff_card.html person=person %}
+      {% endunless %}
+    {% endfor %}
+  </ul>
+  </div>
+</section>

@@ -1,0 +1,464 @@
+/* Header, Navigation, Footer, and Cross-Page Transitions */
+
+/* Native Cross-Document View Transitions */
+@view-transition {
+  navigation: auto;
+}
+
+/* Page Transfer Transition Animations */
+.site-main {
+  animation: page-fade-enter 0.32s var(--ease-spring) both;
+  will-change: opacity, transform;
+}
+
+@keyframes page-fade-enter {
+  0% {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+body.page-is-exiting .site-main {
+  opacity: 0;
+  transform: translateY(-6px);
+  transition: opacity 0.14s ease, transform 0.14s ease;
+}
+
+/* Header Base & Glassmorphism with Embedded Particle Network */
+.site-header {
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+  width: 100%;
+  border-bottom: var(--hairline-strong);
+  background-color: rgba(252, 251, 249, 0.94);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  overflow: visible;
+  transition: background-color 0.25s var(--ease-spring), border-color 0.25s var(--ease-spring), box-shadow 0.25s var(--ease-spring);
+}
+
+/* Active Scrolled Header State */
+.site-header.is-scrolled {
+  background-color: rgba(252, 251, 249, 0.98);
+  border-bottom-color: var(--border-strong);
+  box-shadow: 0 4px 20px rgba(24, 24, 27, 0.06);
+}
+
+.header-inner {
+  position: relative;
+  z-index: 1;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  min-height: 5.65rem;
+  padding-top: 0.85rem;
+  padding-bottom: 0.85rem;
+  gap: 1.25rem;
+  flex-wrap: nowrap;
+}
+
+/* Site Branding & Sharif University Identity */
+.site-branding {
+  display: flex;
+  align-items: center;
+  gap: 0.85rem;
+  flex-shrink: 0;
+  min-width: 0;
+}
+
+.site-logo-link {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  min-height: 44px;
+  text-decoration: none;
+  color: var(--text);
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+
+/* Sharif University of Technology SVG Vector Logo */
+.sharif-logo {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 44px;
+  height: 44px;
+  flex-shrink: 0;
+  color: var(--accent);
+}
+
+.sharif-logo-svg {
+  width: 42px;
+  height: 42px;
+  display: block;
+}
+
+/* 3-Tier Brand Typography: Sharif (top) -> Course Name -> Fall 2026 (below) */
+.brand-text-block {
+  display: flex;
+  flex-direction: column;
+  gap: 0.35rem;
+  line-height: 1.15;
+}
+
+.brand-uni {
+  font-family: var(--font-sans);
+  font-size: 0.75rem;
+  font-weight: 650;
+  text-transform: uppercase;
+  letter-spacing: 0.055em;
+  color: var(--accent);
+  line-height: 1.2;
+}
+
+.site-name {
+  font-family: var(--font-heading);
+  font-size: 1.18rem;
+  font-weight: 700;
+  letter-spacing: -0.015em;
+  color: var(--text);
+  line-height: 1.2;
+}
+
+/* Short course name stands in for the full one on narrow headers. */
+.site-name-short {
+  display: none;
+  font-family: var(--font-heading);
+  font-size: 1.05rem;
+  font-weight: 700;
+  letter-spacing: -0.01em;
+  color: var(--text);
+  line-height: 1.2;
+}
+
+.brand-term {
+  font-family: var(--font-sans);
+  font-size: 0.75rem;
+  font-weight: 500;
+  color: var(--text-muted);
+  line-height: 1.2;
+}
+
+/* Active Scrolled Header State */
+.site-header.is-scrolled {
+  background-color: rgba(252, 251, 249, 0.96);
+  border-bottom-color: var(--border-strong);
+  box-shadow: 0 4px 16px rgba(24, 24, 27, 0.04);
+}
+
+@media (max-width: 920px) {
+  .site-name {
+    display: none;
+  }
+  .site-name-short {
+    display: block;
+  }
+}
+
+/* Header Actions & Nav */
+.header-actions {
+  display: flex;
+  align-items: center;
+  gap: 0.75rem;
+}
+
+.nav-links {
+  display: flex;
+  align-items: center;
+}
+
+.nav-list {
+  display: flex;
+  align-items: center;
+  list-style: none;
+  gap: 0.25rem;
+  flex-wrap: nowrap;
+}
+
+.nav-link {
+  text-transform: uppercase;
+  display: inline-flex;
+  align-items: center;
+  min-height: 44px;
+  padding: 0 0.62rem;
+  font-family: var(--font-sans);
+  font-size: 0.85rem;
+  font-weight: 500;
+  letter-spacing: -0.01em;
+  color: var(--text-muted);
+  text-decoration: none;
+  border-radius: var(--radius-md);
+  white-space: nowrap;
+  transition: color 0.15s ease, background-color 0.15s ease, transform 0.15s var(--ease-spring);
+}
+
+.nav-link:hover {
+  color: var(--text);
+  background-color: var(--bg-subtle);
+  transform: translateY(-1px);
+}
+
+.nav-link.is-active {
+  color: var(--accent);
+  font-weight: 600;
+  background-color: var(--accent-subtle);
+  border: 1px solid var(--accent-border);
+}
+
+/* Mobile Nav Toggle Button (at least 44 × 44px touch target) */
+.btn-nav-toggle {
+  display: none;
+  align-items: center;
+  justify-content: center;
+  width: 2.75rem;
+  height: 2.75rem;
+  min-width: 44px;
+  min-height: 44px;
+  padding: 0;
+  background: transparent;
+  border: var(--hairline);
+  border-radius: var(--radius-md);
+  color: var(--text);
+  cursor: pointer;
+  flex-shrink: 0;
+  transition: border-color 0.15s ease, background-color 0.15s ease;
+}
+
+.btn-nav-toggle:hover {
+  border-color: var(--border-strong);
+  background-color: var(--bg-subtle);
+}
+
+.btn-nav-toggle:focus-visible {
+  outline: var(--focus-ring);
+  outline-offset: var(--focus-offset);
+}
+
+.hamburger-box {
+  width: 20px;
+  height: 16px;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.hamburger-bar {
+  display: block;
+  width: 100%;
+  height: 2px;
+  background-color: currentColor;
+  border-radius: 1px;
+  transition: transform 0.2s ease, opacity 0.2s ease;
+}
+
+/* Compact navigation when the full menu no longer fits */
+@media (max-width: 1100px) {
+  .header-inner {
+    position: static;
+  }
+
+  .header-actions {
+    position: static;
+  }
+
+  .btn-nav-toggle {
+    display: inline-flex;
+  }
+
+  .nav-links {
+    display: none;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    right: 0;
+    width: 100%;
+    background-color: #ffffff;
+    border-bottom: 2px solid var(--border-strong);
+    padding: 1.15rem clamp(1rem, 4vw, 2.5rem);
+    box-shadow: 0 20px 40px -4px rgba(0, 0, 0, 0.16), 0 0 0 1px rgba(0, 0, 0, 0.04);
+    z-index: 1001;
+  }
+
+  .nav-links.is-open {
+    display: block;
+    animation: menu-drop 0.2s var(--ease-spring);
+  }
+
+  @keyframes menu-drop {
+    from {
+      opacity: 0;
+      transform: translateY(-8px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  .nav-list {
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    gap: 0.5rem;
+    width: 100%;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+  }
+
+  .nav-item {
+    width: 100%;
+  }
+
+  .nav-link {
+    display: flex;
+    align-items: center;
+    width: 100%;
+    min-height: 44px;
+    padding: 0.75rem 1.15rem;
+    font-size: 1.02rem;
+    font-weight: 550;
+    border-radius: var(--radius-md);
+    border: 1px solid transparent;
+  }
+
+  .nav-link.is-active {
+    background-color: var(--accent-subtle);
+    color: var(--accent);
+    border-color: var(--accent-border);
+    font-weight: 650;
+  }
+
+  .btn-nav-toggle[aria-expanded="true"] .hamburger-bar:nth-child(1) {
+    transform: translateY(7px) rotate(45deg);
+  }
+  .btn-nav-toggle[aria-expanded="true"] .hamburger-bar:nth-child(2) {
+    opacity: 0;
+  }
+  .btn-nav-toggle[aria-expanded="true"] .hamburger-bar:nth-child(3) {
+    transform: translateY(-7px) rotate(-45deg);
+  }
+}
+
+@media (max-width: 600px) {
+  .site-branding,
+  .site-logo-link {
+    flex-shrink: 1;
+    min-width: 0;
+  }
+
+  .site-logo-link { white-space: normal; }
+
+  .site-logo-link {
+    gap: 0.65rem;
+  }
+  .brand-uni {
+    font-size: 0.75rem;
+    letter-spacing: 0.04em;
+  }
+  .sharif-logo {
+    width: 38px;
+    height: 38px;
+  }
+  .sharif-logo-svg {
+    width: 36px;
+    height: 36px;
+  }
+}
+
+/* Page Header & Parallax Hero Stage Behavior */
+.page-header {
+  margin-bottom: var(--space-8);
+  padding-bottom: var(--space-6);
+  border-bottom: var(--hairline);
+  position: relative;
+}
+
+.page-title {
+  font-family: var(--font-heading);
+  font-size: clamp(2rem, 3.2vw, 2.75rem);
+  font-weight: 700;
+  letter-spacing: -0.025em;
+  color: var(--text);
+  line-height: 1.15;
+}
+
+/* Footer Layout */
+.site-footer {
+  border-top: var(--hairline);
+  background-color: var(--bg);
+  padding: var(--space-8) 0;
+  margin-top: auto;
+  font-size: 0.875rem;
+  color: var(--text-muted);
+}
+
+.footer-inner {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1.5rem;
+}
+
+.footer-meta {
+  max-width: 55ch;
+}
+
+.footer-course-title {
+  font-family: var(--font-heading);
+  font-size: 1.20rem;
+  line-height: 1.25;
+  color: var(--text);
+  margin-bottom: 0.25rem;
+}
+
+.footer-secondary {
+  font-size: 0.850rem;
+  font-weight: 400;
+  color: var(--text-muted);
+}
+
+.footer-links {
+  display: flex;
+  align-items: center;
+}
+
+.footer-nav {
+  display: flex;
+  flex-wrap: wrap;
+  list-style: none;
+  gap: 1.25rem;
+}
+
+.footer-nav a {
+  color: var(--text-muted);
+  text-decoration: none;
+  transition: color 0.15s ease;
+}
+
+.footer-nav a:hover {
+  color: var(--accent);
+}
+
+.footer-nav a.back-to-top {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  min-height: 44px;
+  padding: 0 0.25rem;
+  font-size: 0.875rem;
+}
+
+.back-to-top:focus-visible {
+  outline: var(--focus-ring);
+  outline-offset: var(--focus-offset);
+  border-radius: var(--radius-sm);
+}

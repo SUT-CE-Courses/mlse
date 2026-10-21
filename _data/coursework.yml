@@ -1,0 +1,39 @@
+# HOMEWORK AND PROJECT CARDS on the Homework & Exams page.
+# Dates come from _data/course_plan.yml (matched by `slug`).
+#
+# Full example:
+#
+#   - title: "Theory Homework 1"        # card title
+#     order: 1                          # card order
+#     kind: "Theory"                    # small label above the title
+#     slug: "theory-1"                  # must match the slug in course_plan.yml
+#     tag: "TH1"                        # large faded label behind the card
+#     topic: "Data pipelines and feature engineering"   # one line under the title
+
+- title: "Homework I"
+  order: 1
+  kind: "Theory"
+  slug: "theory-1"
+  tag: "TH1"
+  topic: ""
+
+- title: "Homework II"
+  order: 2
+  kind: "Theory"
+  slug: "theory-2"
+  tag: "TH2"
+  topic: ""
+
+- title: "Project I"
+  order: 3
+  kind: "Practical"
+  slug: "project-1"
+  tag: "P1"
+  topic: ""
+  
+- title: "Project II"
+  order: 4
+  kind: "Practical"
+  slug: "project-2"
+  tag: "P2"
+  topic: ""

@@ -1,0 +1,17 @@
+# NAVIGATION: the links in the header, in order.
+#
+# Full example:
+#
+#   - title: "Lectures"               # link text
+#     url: "/lectures/"               # site path; "/#course-plan" jumps to a home page section
+
+- title: "Home"
+  url: "/"
+- title: "Course Plan"
+  url: "/#course-plan"
+- title: "Lectures"
+  url: "/lectures/"
+- title: "Homework & Exams"
+  url: "/homework/"
+- title: "Resources"
+  url: "/sources/"

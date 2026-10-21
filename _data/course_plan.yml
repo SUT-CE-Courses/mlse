@@ -1,0 +1,91 @@
+# COURSE PLAN: every date on the home page timeline, the Lectures page and the
+# Homework & Exams cards comes from this file. Dates are YYYY-MM-DD.
+#
+# Full example of each kind of entry:
+#
+#   teaching_days: "Saturdays & Mondays"     # shown in the home page header
+#
+#   topics:                                  # one entry per lecture topic
+#     - topic_order: 4                       # matches `order` in _lectures/04.md
+#       dates:                               # one date per session of that topic
+#         - "2026-11-09"
+#         - "2026-11-14"                     # a second date = a two-session topic
+#
+#   coursework:                              # homework and projects
+#     - slug: "theory-1"                     # matches `slug` in _data/coursework.yml
+#       release: "2026-10-31"                # shown as "Release" on the timeline
+#       due: "2026-11-14"                    # shown as "Deadline" and on the card
+#
+#   exams:
+#     - slug: "midterm-exam"                 # matches the file name in _exams/
+#       date: "2026-12-02"                   # shown on the timeline and the exam card
+teaching_days: "Sundays & Teusdays"
+topics:
+  - topic_order: 1
+    dates:
+      - "2026-10-24"
+  - topic_order: 2
+    dates:
+      - "2026-10-26"
+      - "2026-10-31"
+  - topic_order: 3
+    dates:
+      - "2026-11-02"
+      - "2026-11-07"
+  - topic_order: 4
+    dates:
+      - "2026-11-09"
+  - topic_order: 5
+    dates:
+      - "2026-11-14"
+  - topic_order: 6
+    dates:
+      - "2026-11-16"
+  - topic_order: 7
+    dates:
+      - "2026-11-21"
+      - "2026-11-23"
+  - topic_order: 8
+    dates:
+      - "2026-11-28"
+      - "2026-11-30"
+  - topic_order: 9
+    dates:
+      - "2026-12-05"
+      - "2026-12-07"
+  - topic_order: 10
+    dates:
+      - "2026-12-12"
+      - "2026-12-14"
+  - topic_order: 11
+    dates:
+      - "2026-12-19"
+      - "2026-12-21"
+  - topic_order: 12
+    dates:
+      - "2026-12-26"
+  - topic_order: 13
+    dates:
+      - "2026-12-28"
+  - topic_order: 14
+    dates:
+      - "2027-01-02"
+      - "2027-01-04"
+coursework:
+  - slug: "theory-1"
+    # release: ""
+    # due: ""
+  - slug: "theory-2"
+    # release: ""
+    # due: ""
+  - slug: "project-1"
+    # release: ""
+    # due: ""
+  - slug: "project-2"
+    # release: ""
+    # due: ""
+exams:
+  - slug: "midterm-exam"
+    # date: ""
+  - slug: "final-exam"
+    # date: ""

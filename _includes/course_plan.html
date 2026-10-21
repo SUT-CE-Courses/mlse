@@ -1,0 +1,85 @@
+{% comment %}
+  Course Plan timeline on the home page. Rendered from _data/course_plan.yml,
+  _data/coursework.yml, _lectures/ and _exams/. Edit those files, not this one.
+{% endcomment %}
+<section class="course-plan" id="course-plan" aria-labelledby="course-plan-heading">
+  <h2 id="course-plan-heading" class="section-heading">Course Plan</h2>
+  {% assign plan = site.data.course_plan %}
+  {% assign coursework = site.data.coursework %}
+  {% assign term_year = site.term | split: " " | last %}
+  {% comment %} A topic taught over several sessions is one row, dated by its first session. {% endcomment %}
+  {% assign session_total = 0 %}
+  {% capture plan_dates %}{% for entry in plan.topics %}{% assign session_total = session_total | plus: entry.dates.size %}{{ entry.dates.first }}|{% endfor %}{% for entry in plan.coursework %}{{ entry.release }}|{{ entry.due }}|{% endfor %}{% for entry in plan.exams %}{{ entry.date }}|{% endfor %}{% endcapture %}
+  {% assign days = plan_dates | split: "|" | uniq | sort %}
+
+    <div class="section-body">
+    <ol class="plan-timeline" id="plan-timeline" data-plan-timeline data-sessions="{{ session_total }}">
+      {% assign previous_month = "" %}
+      {% for day in days %}
+        {% assign month = day | date: "%B %Y" %}
+        {% if month != previous_month %}
+          <li class="plan-month"><h3>{{ month }}</h3></li>
+          {% assign previous_month = month %}
+        {% endif %}
+        
+        {% assign day_until = day %}
+        {% for entry in plan.topics %}{% if entry.dates.first == day and entry.dates.last > day_until %}{% assign day_until = entry.dates.last %}{% endif %}{% endfor %}
+        <li class="plan-day" id="plan-{{ day }}" data-date="{{ day }}"{% if day_until != day %} data-until="{{ day_until }}"{% endif %}>
+          <time class="plan-date" datetime="{{ day }}">
+            <span class="plan-day-date">{{ day | date: "%-d %b" }}{% assign day_year = day | date: "%Y" %}{% if day_year != term_year %} {{ day_year }}{% endif %}</span>
+            <span class="plan-weekday">{{ day | date: "%a" }}</span>
+            <span class="plan-next-flag" hidden>Next</span>
+          </time>
+          <span class="plan-marker" aria-hidden="true"></span>
+          <ul class="plan-events">
+            {% assign session = 0 %}
+            {% for entry in plan.topics %}
+              {% assign first_session = session | plus: 1 %}
+              {% assign session = session | plus: entry.dates.size %}
+              {% if entry.dates.first == day %}
+                {% assign topic = site.lectures | where: "order", entry.topic_order | first %}
+                <li class="plan-event">
+                  <div class="plan-event-content">
+                  <span class="plan-event-label">{% if entry.dates.size > 1 %}Sessions {{ first_session }}–{{ session }}{% else %}Session {{ session }}{% endif %}</span>
+                  <h4>{{ topic.title }}</h4>
+                  {% if topic.description %}<p class="plan-focus">{{ topic.description }}</p>{% endif %}
+                  </div>
+                </li>
+              {% endif %}
+            {% endfor %}
+            {% for entry in plan.coursework %}
+              {% assign item = coursework | where: "slug", entry.slug | first %}
+              {% if entry.release == day %}
+                <li class="plan-event plan-event-release">
+                  <div class="plan-event-content">
+                  <span class="plan-event-label">Release</span>
+                  <h4>{{ item.title }}</h4>
+                  </div>
+                </li>
+              {% endif %}
+              {% if entry.due == day %}
+                <li class="plan-event plan-event-due">
+                  <div class="plan-event-content">
+                  <span class="plan-event-label">Deadline</span>
+                  <h4>{{ item.title }}</h4>
+                  </div>
+                </li>
+              {% endif %}
+            {% endfor %}
+            {% for entry in plan.exams %}
+              {% if entry.date == day %}
+                {% assign exam = site.exams | where: "slug", entry.slug | first %}
+                <li class="plan-event plan-event-exam">
+                  <div class="plan-event-content">
+                  <span class="plan-event-label">Exam</span>
+                  <h4>{{ exam.title }}</h4>
+                  </div>
+                </li>
+              {% endif %}
+            {% endfor %}
+          </ul>
+        </li>
+      {% endfor %}
+    </ol>
+    </div>
+</section>

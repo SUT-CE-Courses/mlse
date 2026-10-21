@@ -1,0 +1,18 @@
+_site/
+.sass-cache/
+.jekyll-cache/
+.jekyll-metadata
+vendor/
+.bundle/
+*.log
+.DS_Store
+
+# Not needed for production
+.agents/
+.claude/
+.codex/
+.impeccable/
+DESIGN.md
+PRODUCT.md
+skills-lock.json
+content_syllabus.md

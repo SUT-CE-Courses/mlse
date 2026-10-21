@@ -1,0 +1,209 @@
+/* Homepage course timeline with brief topic focus text. */
+.course-plan { scroll-margin-top: 7rem; }
+
+/* Collapses days that have already passed; inserted by main.js. */
+.plan-fold-toggle {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.4rem;
+  min-height: 44px;
+  margin: 0;
+  padding: 0 0.85rem;
+  border: var(--hairline-strong);
+  border-radius: var(--radius-full);
+  background: var(--surface);
+  color: var(--text);
+  font: inherit;
+  font-size: 0.875rem;
+  font-weight: 500;
+  cursor: pointer;
+  transition: border-color 0.15s ease, color 0.15s ease;
+
+  &:hover { border-color: var(--accent); color: var(--accent); }
+  &:focus-visible { outline: var(--focus-ring); outline-offset: var(--focus-offset); }
+}
+
+.plan-earlier-toggle { margin: 0 0 1.25rem 132px; }
+.plan-later-toggle { margin: 0.5rem 0 0 132px; }
+
+.plan-timeline {
+  position: relative;
+  list-style: none;
+  margin: 0;
+  padding: 0;
+
+  &::before {
+    content: "";
+    position: absolute;
+    top: 1.5rem;
+    bottom: 1.5rem;
+    left: 105px;
+    width: 1px;
+    background: var(--border-strong);
+  }
+}
+
+.plan-month {
+  position: relative;
+  margin: 2rem 0 1rem 132px;
+
+  &:first-child { margin-top: 0; }
+  h3 {
+    display: inline-block;
+    position: relative;
+    margin: 0;
+    padding: 0.25rem 0;
+    background: transparent;
+    font-family: var(--font-heading);
+    font-size: 1.2rem;
+    line-height: 1.5;
+  }
+}
+
+.plan-day {
+  position: relative;
+  scroll-margin-top: 7rem;
+  display: grid;
+  grid-template-columns: 80px 28px minmax(0, 1fr);
+  gap: 0 12px;
+  margin-bottom: 1rem;
+}
+
+.plan-date {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+  gap: 0.2rem;
+  padding-top: 0.25rem;
+  font-size: 0.85rem;
+  white-space: nowrap;
+  color: var(--text);
+}
+
+.plan-weekday { color: var(--text-muted); font-size: 0.75rem; }
+
+/* Confirmed days get a filled marker; illustrative days stay hollow. */
+.plan-marker {
+  z-index: 1;
+  justify-self: center;
+  margin-top: 0.55rem;
+  width: 9px;
+  height: 9px;
+  border: 2px solid var(--accent);
+  border-radius: var(--radius-full);
+  background: var(--accent);
+  box-shadow: 0 0 0 4px var(--bg);
+}
+
+
+.plan-next-flag {
+  margin-top: 0.15rem;
+  color: var(--accent);
+  font-size: 0.75rem;
+  font-weight: 700;
+}
+
+.plan-day.is-next {
+  .plan-day-date { color: var(--accent); font-weight: 600; }
+  .plan-marker {
+    margin-top: 0.4rem;
+    width: 13px;
+    height: 13px;
+    box-shadow: 0 0 0 3px var(--bg), 0 0 0 5px var(--accent-border);
+  }
+}
+
+.plan-day.is-past {
+  .plan-day-date,
+  .plan-event,
+  .plan-event-release,
+  .plan-event-due,
+  .plan-event-exam { color: var(--text-muted); }
+  .plan-marker { border-color: var(--border-strong); background: var(--border-strong); }
+}
+
+.plan-day[hidden],
+.plan-month[hidden] { display: none; }
+
+.plan-events {
+  list-style: disc;
+  margin: 0;
+  padding: 0.15rem 0 0 1.1rem;
+}
+
+.plan-event {
+  padding: 0 0 0.65rem 0.25rem;
+  color: var(--text);
+  line-height: 1.5;
+
+  &::marker { color: var(--accent); }
+  .is-past &::marker { color: var(--border-strong); }
+  &:last-child { padding-bottom: 0; }
+
+  h4 {
+    grid-column: 2;
+    margin: 0;
+    color: inherit;
+    font-family: var(--font-heading);
+    font-size: 0.95rem;
+    font-weight: 600;
+    line-height: 1.5;
+    overflow-wrap: break-word;
+  }
+}
+
+.plan-event-content {
+  display: grid;
+  grid-template-columns: 6.25rem minmax(0, 1fr);
+  gap: 0.3rem 1rem;
+  align-items: baseline;
+}
+
+.plan-event-label {
+  grid-column: 1;
+  color: var(--text-muted);
+  font-size: 0.75rem;
+  font-weight: 500;
+  line-height: 1.5;
+  white-space: nowrap;
+}
+
+.plan-event-release { color: var(--event-release); }
+.plan-event-due { color: var(--event-due); }
+.plan-event-exam { color: var(--event-exam); }
+
+.plan-event-release,
+.plan-event-due,
+.plan-event-exam {
+  &::marker { color: currentColor; }
+  .plan-event-label { color: inherit; font-weight: 700; }
+}
+
+@media (max-width: 600px) {
+  .plan-timeline::before { left: 70px; }
+  .plan-month { margin-left: 96px; }
+  .plan-month h3 { font-size: 1.1rem; }
+  .plan-day { grid-template-columns: 54px 18px minmax(0, 1fr); gap: 0 8px; }
+  .plan-date { font-size: 0.75rem; }
+  .plan-event-content { grid-template-columns: minmax(0, 1fr); gap: 0.15rem; }
+  .plan-event-label { font-size: 0.75rem; }
+  .plan-earlier-toggle,
+  .plan-later-toggle { margin-left: 96px; }
+  .plan-event h4 { grid-column: 1; font-size: 0.85rem; }
+}
+
+.plan-focus {
+  grid-column: 2;
+  max-width: var(--prose-max);
+  margin: 0;
+  color: var(--text-muted);
+  font-size: 0.85rem;
+  line-height: 1.5;
+  text-wrap: pretty;
+
+  span { font-weight: 600; }
+}
+
+@media (max-width: 600px) {
+  .plan-focus{ grid-column: 1; font-size: 0.8rem; }
+}
