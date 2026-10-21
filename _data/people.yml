@@ -56,3 +56,8 @@ tas:
   - name: "Parham Feizollahi"
     role: "Teaching Assistant"
     email: "parhamfaizolahi@gmail.com"
+
+  - name: "Mohammad Javad Papizadeh"
+    role: "Teaching Assistant"
+    email: "mj.papizadeh@ut.ac.ir"
+    photo: "/assets/images/people/papizadeh.jpg"
