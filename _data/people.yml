@@ -49,6 +49,7 @@ tas:
   - name: "Aida Jalali"
     role: "Teaching Assistant"
     email: "aidajalaliii@gmail.com"
+    photo: "/assets/images/people/jalali.jpg"
 
   - name: "Mahbod Khaleti"
     role: "Teaching Assistant"
@@ -66,3 +67,13 @@ tas:
     role: "Teaching Assistant"
     email: "mj.papizadeh@ut.ac.ir"
     photo: "/assets/images/people/papizadeh.jpg"
+
+  - name: "Amir Mohammad Sharafaddini"
+    role: "Teaching Assistant"
+    email: "a.m.sharafaddini@gmail.com"
+    photo: "/assets/images/people/sharafaddini.jpg"
+
+  - name: "Nima Soltani"
+    role: "Teaching Assistant"
+    email: "nimasoltani.ce@gmail.com"
+    photo: "/assets/images/people/soltani.jpg"
