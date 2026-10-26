@@ -99,10 +99,10 @@ coursework:
     due: "2027-01-16"
   - slug: "project-1"
     release: "2026-11-24"
-    due: "2026-12-08"
+    due: "2026-12-07"
   - slug: "project-2"
     release: "2026-12-15"
-    due: "2027-01-05"
+    due: "2027-01-04"
 exams:
   - slug: "midterm-exam"
     date: "2026-12-27"
