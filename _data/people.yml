@@ -36,6 +36,7 @@ tas:
   - name: "Ali Bakhtiari"
     role: "Teaching Assistant"
     email: "alibakhtiari6996@gmail.com"
+    photo: "/assets/images/people/bakhtiari.png"
 
   - name: "Reza Ghorbani"
     role: "Teaching Assistant"
