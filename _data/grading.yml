@@ -6,12 +6,9 @@
 #     weight: 40                      # percent
 #     summary: "Midterm and final exams."   # kept for reference, not displayed
 
-- title: "EXAMS"
-  weight: 40
-  summary: ""
-- title: "HOMEWORK & PROJECTS"
-  weight: 40
-  summary: ""
+- title: "HOMEWORKS"
+  weight: 25
 - title: "RESEARCH REPORT"
-  weight: 20
-  summary: ""
+  weight: 15
+- title: "MIDTERM & FINAL"
+  weight: 60

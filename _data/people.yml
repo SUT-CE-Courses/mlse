@@ -7,16 +7,16 @@
 #   instructor:
 #     name: "Maryam Ramezani"
 #     role: "Instructor"
-#     title: "Assistant Professor"      # optional; second line under the role
-#     email: "name@sharif.edu"          # optional; the card becomes a mailto: link
-#     office: "CE821"                   # optional
-#     office_hours: "Sun 10:00-12:00"   # optional
+#     title: "Assistant Professor"          # optional; second line under the role
+#     email: "maryam.ramezani@sharif.edu"   # optional; the card becomes a mailto: link
+#     office: "CE821"                       # optional
+#     office_hours: "Sun 10:00-12:00"       # optional
 #     photo: "/assets/images/people/ramezani.jpg"   # optional; initials are shown without it
 #
 #   tas:
 #     - name: "Erfan Yeganegi"
 #       role: "Head Teaching Assistant"
-#       email: "name@example.com"
+#       email: "yeganegierfan@gmailc.com"
 #       photo: "/assets/images/people/yeganegi.jpg"
 
 instructor:
@@ -45,11 +45,17 @@ tas:
   - name: "Kimia Vanaei"
     role: "Teaching Assistant"
     email: "kimiavanaei83@gmail.com"
+    photo: "/assets/images/people/vanaei.png"
 
   - name: "Aida Jalali"
     role: "Teaching Assistant"
     email: "aidajalaliii@gmail.com"
     photo: "/assets/images/people/jalali.jpg"
+
+  - name: "Saeide Danaei"
+    role: "Teaching Assistant"
+    email: "saeidedanaei@gmail.com"
+    photo: "/assets/images/people/danaei.png"
 
   - name: "Mahbod Khaleti"
     role: "Teaching Assistant"
@@ -58,10 +64,7 @@ tas:
   - name: "Seyed Amir Hossein Mousavi Fard"
     role: "Teaching Assistant"
     email: "applest.ariamoosavi@gmail.com"
-
-  - name: "Parham Feizollahi"
-    role: "Teaching Assistant"
-    email: "parhamfaizolahi@gmail.com"
+    photo: "/assets/images/people/mousavi.png"
 
   - name: "Mohammad Javad Papizadeh"
     role: "Teaching Assistant"

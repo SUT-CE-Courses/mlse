@@ -18,12 +18,12 @@ tagline: "Data, training, deployment, monitoring, and AI agents."
 term: "Fall 2026"
 meeting_time: "13:30 - 15:00"
 location: "CE 402"
-repository: "erfanyeganegi/MLSE2026"
+repository: "sut-ce-courses/mlse"
 
 # URL and BaseURL
 # CRITICAL: url must NOT have a trailing slash; baseurl must equal the repo name (/MLSE2026)
-url: "https://erfanyeganegi.github.io"
-baseurl: "/MLSE2026"
+url: "https://sut-ce-courses.github.io"
+baseurl: "/mlse"
 
 # Timezone
 # Explicit timezone prevents UTC build offset bugs shifting dates

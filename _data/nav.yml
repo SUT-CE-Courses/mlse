@@ -7,8 +7,6 @@
 
 - title: "Home"
   url: "/"
-- title: "Course Plan"
-  url: "/#course-plan"
 - title: "Lectures"
   url: "/lectures/"
 - title: "Homework & Exams"

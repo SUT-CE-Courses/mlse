@@ -6,5 +6,5 @@
 #   description: "Wednesday 2 December, 09:00 to 11:00. Closed book."   # time and coverage
 title: "MIDTERM"
 order: 1
-description: ""
+description: "Sunday, 27 December, 13:30 - 15:00"
 ---
