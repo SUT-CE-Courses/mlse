@@ -14,24 +14,45 @@
 
   var isReducedMotion = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
-  // Course timing: "today" is the calendar date in Tehran, as Jalali YYYY-MM-DD, so
-  // it compares directly with the data-date strings rendered from YAML.
+  // Course timing: "today" is the calendar date in Tehran, as Jalali YYYY-MM-DD.
+  // Sessions are held 13:30 - 15:00 Tehran time. If it is past 13:30 Tehran time,
+  // today's session is treated as past so the "Next" flag moves to the next session.
   function tehranToday() {
     try {
       var formatter = new Intl.DateTimeFormat('en-US-u-ca-persian', {
-        timeZone: 'Asia/Tehran', year: 'numeric', month: '2-digit', day: '2-digit'
+        timeZone: 'Asia/Tehran',
+        year: 'numeric',
+        month: '2-digit',
+        day: '2-digit',
+        hour: '2-digit',
+        minute: '2-digit',
+        hour12: false,
+        hourCycle: 'h23'
       });
       var parts = formatter.formatToParts(new Date());
-      var y, m, d;
+      var y, m, d, hour, minute;
+      var dayPeriod = '';
       for (var i = 0; i < parts.length; i++) {
         if (parts[i].type === 'year') y = parts[i].value;
         if (parts[i].type === 'month') m = parts[i].value;
         if (parts[i].type === 'day') d = parts[i].value;
+        if (parts[i].type === 'hour') hour = parts[i].value;
+        if (parts[i].type === 'minute') minute = parts[i].value;
+        if (parts[i].type === 'dayPeriod') dayPeriod = parts[i].value.toLowerCase();
       }
       if (y && m && d) {
         if (m.length === 1) m = '0' + m;
         if (d.length === 1) d = '0' + d;
-        return y + '-' + m + '-' + d;
+        var h = parseInt(hour, 10);
+        var min = parseInt(minute, 10);
+        if (dayPeriod === 'pm' && h < 12) h += 12;
+        if (dayPeriod === 'am' && h === 12) h = 0;
+        return {
+          date: y + '-' + m + '-' + d,
+          hour: isNaN(h) ? 0 : h,
+          minute: isNaN(min) ? 0 : min,
+          isPast1330: (!isNaN(h) && (h > 13 || (h === 13 && min >= 30)))
+        };
       }
     } catch (error) {}
     return null;
@@ -84,7 +105,8 @@
     Array.prototype.forEach.call(timeline.querySelectorAll('.plan-day'), function (day) {
       var start = day.getAttribute('data-date');
       var end = day.getAttribute('data-until') || start;
-      if (end < today) {
+      var isPast = (end < today.date) || (end === today.date && today.isPast1330);
+      if (isPast) {
         day.classList.add('is-past');
         pastDays.push(day);
       } else {
@@ -93,7 +115,7 @@
           day.classList.add('is-next');
           day.querySelector('.plan-next-flag').hidden = false;
         }
-        if (daysBetween(today, start) > WINDOW_DAYS) futureDays.push(day);
+        if (daysBetween(today.date, start) > WINDOW_DAYS) futureDays.push(day);
       }
     });
 
@@ -164,11 +186,8 @@
     };
 
     var sessions = timeline.getAttribute('data-sessions');
-    var pastFold = makeFold(pastDays, 'plan-earlier-toggle', {
-      show: 'Show ' + pastDays.length + ' earlier ' + (pastDays.length === 1 ? 'day' : 'days'),
-      hide: 'Hide earlier days'
-    }, true);
-    var futureFold = makeFold(futureDays, 'plan-later-toggle', {
+    var foldedDays = pastDays.concat(futureDays);
+    var fullPlanFold = makeFold(foldedDays, 'plan-later-toggle', {
       show: 'See full plan',
       hide: 'Collapse'
     }, false);
@@ -177,9 +196,9 @@
     var revealTarget = function () {
       var target = window.location.hash && document.getElementById(window.location.hash.slice(1));
       if (target && target.hidden && timeline.contains(target)) {
-        [pastFold, futureFold].forEach(function (fold) {
-          if (fold && fold.elements.indexOf(target) !== -1) fold.set(false);
-        });
+        if (fullPlanFold && fullPlanFold.elements.indexOf(target) !== -1) {
+          fullPlanFold.set(false);
+        }
         target.scrollIntoView({ block: 'start' });
       }
     };
