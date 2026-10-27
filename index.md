@@ -45,7 +45,7 @@ permalink: /
       <ul class="announcements-list">
         {% for note in site.data.announcements %}
           <li class="announcement-item">
-            <time class="announcement-date" datetime="{{ note.date }}">{{ note.date | date: "%a %-d %b" }}{% assign note_year = note.date | date: "%Y" %}{% if note_year != term_year %} {{ note_year }}{% endif %}</time>
+            <time class="announcement-date" datetime="{{ note.date }}">{% include jalali_date.html date=note.date format="weekday_day_month" %}{% assign note_parts = note.date | split: "-" %}{% if note_parts[0] != term_year and term_year != "" and term_year != "1405" %} {{ note_parts[0] }}{% endif %}</time>
             <div class="announcement-text">
               <h3 class="announcement-title">{% if note.url %}<a href="{{ note.url | relative_url }}">{{ note.title }}</a>{% else %}{{ note.title }}{% endif %}</h3>
               {% if note.content %}

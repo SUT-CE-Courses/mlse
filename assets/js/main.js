@@ -14,23 +14,45 @@
 
   var isReducedMotion = window.matchMedia && window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
-  // Course timing: "today" is the calendar date in Tehran, as YYYY-MM-DD, so
+  // Course timing: "today" is the calendar date in Tehran, as Jalali YYYY-MM-DD, so
   // it compares directly with the data-date strings rendered from YAML.
   function tehranToday() {
     try {
-      var value = new Intl.DateTimeFormat('en-CA', {
+      var formatter = new Intl.DateTimeFormat('en-US-u-ca-persian', {
         timeZone: 'Asia/Tehran', year: 'numeric', month: '2-digit', day: '2-digit'
-      }).format(new Date());
-      return /^\d{4}-\d{2}-\d{2}$/.test(value) ? value : null;
-    } catch (error) {
-      return null;
+      });
+      var parts = formatter.formatToParts(new Date());
+      var y, m, d;
+      for (var i = 0; i < parts.length; i++) {
+        if (parts[i].type === 'year') y = parts[i].value;
+        if (parts[i].type === 'month') m = parts[i].value;
+        if (parts[i].type === 'day') d = parts[i].value;
+      }
+      if (y && m && d) {
+        if (m.length === 1) m = '0' + m;
+        if (d.length === 1) d = '0' + d;
+        return y + '-' + m + '-' + d;
+      }
+    } catch (error) {}
+    return null;
+  }
+
+  function jalaliToDays(dateStr) {
+    var p = dateStr.split('-');
+    var y = parseInt(p[0], 10);
+    var m = parseInt(p[1], 10);
+    var d = parseInt(p[2], 10);
+    var days = (y - 1405) * 365 + Math.floor((y - 1405) / 4);
+    if (m <= 6) {
+      days += (m - 1) * 31 + d;
+    } else {
+      days += 186 + (m - 7) * 30 + d;
     }
+    return days;
   }
 
   function daysBetween(from, to) {
-    var a = from.split('-');
-    var b = to.split('-');
-    return Math.round((Date.UTC(b[0], b[1] - 1, b[2]) - Date.UTC(a[0], a[1] - 1, a[2])) / 86400000);
+    return jalaliToDays(to) - jalaliToDays(from);
   }
 
   var today = tehranToday();

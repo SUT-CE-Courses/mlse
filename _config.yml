@@ -15,7 +15,7 @@ course_number: "40925"
 credits: 3
 title: "Machine Learning Systems Engineering (MLSE 2026)"
 tagline: "Data, training, deployment, monitoring, and AI agents."
-term: "Fall 2026"
+term: "Fall 1405"
 meeting_time: "13:30 - 15:00"
 location: "CE 402"
 repository: "sut-ce-courses/mlse"
