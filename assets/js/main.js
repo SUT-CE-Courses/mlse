@@ -186,11 +186,8 @@
     };
 
     var sessions = timeline.getAttribute('data-sessions');
-    var pastFold = makeFold(pastDays, 'plan-earlier-toggle', {
-      show: 'Show ' + pastDays.length + ' earlier ' + (pastDays.length === 1 ? 'day' : 'days'),
-      hide: 'Hide earlier days'
-    }, true);
-    var futureFold = makeFold(futureDays, 'plan-later-toggle', {
+    var foldedDays = pastDays.concat(futureDays);
+    var fullPlanFold = makeFold(foldedDays, 'plan-later-toggle', {
       show: 'See full plan',
       hide: 'Collapse'
     }, false);
@@ -199,9 +196,9 @@
     var revealTarget = function () {
       var target = window.location.hash && document.getElementById(window.location.hash.slice(1));
       if (target && target.hidden && timeline.contains(target)) {
-        [pastFold, futureFold].forEach(function (fold) {
-          if (fold && fold.elements.indexOf(target) !== -1) fold.set(false);
-        });
+        if (fullPlanFold && fullPlanFold.elements.indexOf(target) !== -1) {
+          fullPlanFold.set(false);
+        }
         target.scrollIntoView({ block: 'start' });
       }
     };
