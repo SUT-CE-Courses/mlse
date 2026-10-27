@@ -1,110 +1,111 @@
 # COURSE PLAN: every date on the home page timeline, the Lectures page and the
-# Homework & Exams cards comes from this file. Dates are YYYY-MM-DD.
+# Homework & Exams cards comes from this file.
+# Dates are Jalali YYYY-MM-DD (e.g. "1405-08-05" for 5 Aban 1405).
 #
 # Full example of each kind of entry:
 #
-#   teaching_days: "Saturdays & Mondays"     # shown in the home page header
+#   teaching_days: "Sundays & Tuesdays"      # shown in the home page header
 #
 #   topics:                                  # one entry per lecture topic
 #     - topic_order: 4                       # matches `order` in _lectures/04.md
 #       dates:                               # one date per session of that topic
-#         - "2026-11-09"
-#         - "2026-11-14"                     # a second date = a two-session topic
+#         - "1405-08-17"
+#         - "1405-08-19"                     # a second date = a two-session topic
 #
 #   coursework:                              # homework and projects
 #     - slug: "theory-1"                     # matches `slug` in _data/coursework.yml
-#       release: "2026-10-31"                # shown as "Release" on the timeline
-#       due: "2026-11-14"                    # shown as "Deadline" and on the card
+#       release: "1405-08-26"                # shown as "Release" on the timeline
+#       due: "1405-09-09"                    # shown as "Deadline" and on the card
 #
 #   exams:
 #     - slug: "midterm-exam"                 # matches the file name in _exams/
-#       date: "2026-12-02"                   # shown on the timeline and the exam card
-teaching_days: "Sundays & Teusdays"
+#       date: "1405-10-06"                   # shown on the timeline and the exam card
+teaching_days: "Sundays & Tuesdays"
 topics:
   - topic_order: 1
     dates:
-      - "2026-10-27"
+      - "1405-08-05"
   - topic_order: 2
     dates:
-      - "2026-11-01"
+      - "1405-08-10"
   - topic_order: 3
     dates:
-      - "2026-11-03"
+      - "1405-08-12"
   - topic_order: 4
     dates:
-      - "2026-11-08"
+      - "1405-08-17"
   - topic_order: 5
     dates:
-      - "2026-11-10"
+      - "1405-08-19"
   - topic_order: 6
     dates:
-      - "2026-11-15"
+      - "1405-08-24"
   - topic_order: 7
     dates:
-      - "2026-11-17"
+      - "1405-08-26"
   - topic_order: 8
     dates:
-      - "2026-11-22"
+      - "1405-09-01"
   - topic_order: 9
     dates:
-      - "2026-11-24"
+      - "1405-09-03"
   - topic_order: 10
     dates:
-      - "2026-11-29"
+      - "1405-09-08"
   - topic_order: 11
     dates:
-      - "2026-12-01"
+      - "1405-09-10"
   - topic_order: 12
     dates:
-      - "2026-12-06"
+      - "1405-09-15"
   - topic_order: 13
     dates:
-      - "2026-12-08"
+      - "1405-09-17"
   - topic_order: 14
     dates:
-      - "2026-12-13"
+      - "1405-09-22"
   - topic_order: 15
     dates:
-      - "2026-12-15"
+      - "1405-09-24"
   - topic_order: 16
     dates:
-      - "2026-12-20"
+      - "1405-09-29"
   - topic_order: 17
     dates:
-      - "2026-12-22"
+      - "1405-10-01"
   - topic_order: 18
     dates:
-      - "2026-12-29"
+      - "1405-10-08"
   - topic_order: 19
     dates:
-      - "2027-01-03"
+      - "1405-10-13"
   - topic_order: 20
     dates:
-      - "2027-01-05"
+      - "1405-10-15"
   - topic_order: 21
     dates:
-      - "2027-01-10"
+      - "1405-10-20"
   - topic_order: 22
     dates:
-      - "2027-01-12"
+      - "1405-10-22"
   - topic_order: 23
     dates:
-      - "2027-01-17"
+      - "1405-10-27"
 coursework:
   - slug: "theory-1"
-    release: "2026-11-17"
-    due: "2026-11-30"
+    release: "1405-08-26"
+    due: "1405-09-09"
   - slug: "theory-2"
-    release: "2027-01-03"
-    due: "2027-01-16"
+    release: "1405-10-13"
+    due: "1405-10-26"
   - slug: "project-1"
-    release: "2026-11-24"
-    due: "2026-12-07"
+    release: "1405-09-03"
+    due: "1405-09-16"
   - slug: "project-2"
-    release: "2026-12-15"
-    due: "2027-01-04"
+    release: "1405-09-24"
+    due: "1405-10-14"
 exams:
   - slug: "midterm-exam"
-    date: "2026-12-27"
+    date: "1405-10-06"
   - slug: "final-exam"
-    date: "2027-01-27"
+    date: "1405-11-07"

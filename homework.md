@@ -27,7 +27,7 @@ permalink: /homework/
           <h3 class="work-name">{{ item.title }}</h3>
           {% assign pe = plan.coursework | where: "slug", item.slug | first %}
           {% if item.topic %}<p class="work-topic">{{ item.topic }}</p>{% endif %}
-          {% if pe.due %}<span class="work-status is-set">Due <time datetime="{{ pe.due }}">{{ pe.due | date: "%a %-d %b" }}</time></span>{% else %}<span class="work-status">Topic and deadline to be announced</span>{% endif %}
+          {% if pe.due %}<span class="work-status is-set">Due <time datetime="{{ pe.due }}">{% include jalali_date.html date=pe.due format="weekday_day_month" %}</time></span>{% else %}<span class="work-status">Topic and deadline to be announced</span>{% endif %}
         </li>
       {% endfor %}
     </ul>
@@ -42,7 +42,7 @@ permalink: /homework/
           <span class="work-kind">Exam</span>
           <h3 class="work-name">{{ exam.title }}</h3>
           {% if exam.description %}<p class="work-topic">{{ exam.description }}</p>{% endif %}
-          {% if entry.date %}<span class="work-status is-set"><time datetime="{{ entry.date }}">{{ entry.date | date: "%a %-d %b" }}</time></span>{% else %}<span class="work-status">Date to be announced</span>{% endif %}
+          {% if entry.date %}<span class="work-status is-set"><time datetime="{{ entry.date }}">{% include jalali_date.html date=entry.date format="weekday_day_month" %}</time></span>{% else %}<span class="work-status">Date to be announced</span>{% endif %}
         </li>
       {% endfor %}
     </ul>

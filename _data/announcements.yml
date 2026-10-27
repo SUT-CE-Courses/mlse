@@ -3,11 +3,12 @@
 #
 # Full example:
 #
-#   - date: "2026-10-20"              # YYYY-MM-DD
+#   - date: "1405-07-28"              # Jalali YYYY-MM-DD
 #     title: "Midterm date announced" # headline
-#     content: "Wednesday 2 December, 09:00." # optional text under the headline
+#     content: "Sunday 6 Dey, 13:30 - 15:00." # optional text under the headline
 #     url: "/homework/"            # optional; makes the headline a link
 
-- date: "2026-10-20"
+- date: "1405-07-28"
   title: "WELCOME TO MLSE 2026!"
   content: "Please join the course's Quera page."
+
