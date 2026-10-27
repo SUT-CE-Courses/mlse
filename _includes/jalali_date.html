@@ -1,0 +1,56 @@
+{%- comment -%}
+  Formats a Jalali date string (YYYY-MM-DD) with Finglish Persian month names.
+  Usage: {% include jalali_date.html date="1405-08-05" format="day_month" %}
+  Formats:
+    - day_month: "5 Aban"
+    - month_year: "Aban 1405"
+    - weekday: "Tue"
+    - weekday_day_month: "Tue 5 Aban"
+    - month: "Aban"
+    - year: "1405"
+{%- endcomment -%}
+{%- assign _date_parts = include.date | split: "-" -%}
+{%- assign _j_year = _date_parts[0] -%}
+{%- assign _j_month = _date_parts[1] | plus: 0 -%}
+{%- assign _j_day = _date_parts[2] | plus: 0 -%}
+{%- case _j_month -%}
+  {%- when 1 -%}{%- assign _m_name = "Farvardin" -%}
+  {%- when 2 -%}{%- assign _m_name = "Ordibehesht" -%}
+  {%- when 3 -%}{%- assign _m_name = "Khordad" -%}
+  {%- when 4 -%}{%- assign _m_name = "Tir" -%}
+  {%- when 5 -%}{%- assign _m_name = "Mordad" -%}
+  {%- when 6 -%}{%- assign _m_name = "Shahrivar" -%}
+  {%- when 7 -%}{%- assign _m_name = "Mehr" -%}
+  {%- when 8 -%}{%- assign _m_name = "Aban" -%}
+  {%- when 9 -%}{%- assign _m_name = "Azar" -%}
+  {%- when 10 -%}{%- assign _m_name = "Dey" -%}
+  {%- when 11 -%}{%- assign _m_name = "Bahman" -%}
+  {%- when 12 -%}{%- assign _m_name = "Esfand" -%}
+  {%- else -%}{%- assign _m_name = "" -%}
+{%- endcase -%}
+{%- if _j_month <= 6 -%}
+  {%- assign _m_offset = _j_month | minus: 1 | times: 31 -%}
+{%- else -%}
+  {%- assign _m_offset = _j_month | minus: 7 | times: 30 | plus: 186 -%}
+{%- endif -%}
+{%- assign _doy = _m_offset | plus: _j_day -%}
+{%- assign _y_diff = _j_year | plus: 0 | minus: 1405 -%}
+{%- assign _dow_num = _doy | minus: 1 | plus: _y_diff | plus: 700 | modulo: 7 -%}
+{%- case _dow_num -%}
+  {%- when 0 -%}{%- assign _w_name = "Sat" -%}
+  {%- when 1 -%}{%- assign _w_name = "Sun" -%}
+  {%- when 2 -%}{%- assign _w_name = "Mon" -%}
+  {%- when 3 -%}{%- assign _w_name = "Tue" -%}
+  {%- when 4 -%}{%- assign _w_name = "Wed" -%}
+  {%- when 5 -%}{%- assign _w_name = "Thu" -%}
+  {%- when 6 -%}{%- assign _w_name = "Fri" -%}
+{%- endcase -%}
+{%- case include.format -%}
+  {%- when "day_month" -%}{{ _j_day }} {{ _m_name }}
+  {%- when "month_year" -%}{{ _m_name }} {{ _j_year }}
+  {%- when "weekday" -%}{{ _w_name }}
+  {%- when "weekday_day_month" -%}{{ _w_name }} {{ _j_day }} {{ _m_name }}
+  {%- when "month" -%}{{ _m_name }}
+  {%- when "year" -%}{{ _j_year }}
+  {%- else -%}{{ _j_day }} {{ _m_name }}
+{%- endcase -%}

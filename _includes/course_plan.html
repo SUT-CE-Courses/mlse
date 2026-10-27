@@ -16,7 +16,7 @@
     <ol class="plan-timeline" id="plan-timeline" data-plan-timeline data-sessions="{{ session_total }}">
       {% assign previous_month = "" %}
       {% for day in days %}
-        {% assign month = day | date: "%B %Y" %}
+        {% capture month %}{% include jalali_date.html date=day format="month_year" %}{% endcapture %}
         {% if month != previous_month %}
           <li class="plan-month"><h3>{{ month }}</h3></li>
           {% assign previous_month = month %}
@@ -26,8 +26,8 @@
         {% for entry in plan.topics %}{% if entry.dates.first == day and entry.dates.last > day_until %}{% assign day_until = entry.dates.last %}{% endif %}{% endfor %}
         <li class="plan-day" id="plan-{{ day }}" data-date="{{ day }}"{% if day_until != day %} data-until="{{ day_until }}"{% endif %}>
           <time class="plan-date" datetime="{{ day }}">
-            <span class="plan-day-date">{{ day | date: "%-d %b" }}{% assign day_year = day | date: "%Y" %}{% if day_year != term_year %} {{ day_year }}{% endif %}</span>
-            <span class="plan-weekday">{{ day | date: "%a" }}</span>
+            <span class="plan-day-date">{% include jalali_date.html date=day format="day_month" %}{% assign day_parts = day | split: "-" %}{% if day_parts[0] != term_year and term_year != "" and term_year != "1405" %} {{ day_parts[0] }}{% endif %}</span>
+            <span class="plan-weekday">{% include jalali_date.html date=day format="weekday" %}</span>
             <span class="plan-next-flag" hidden>Next</span>
           </time>
           <span class="plan-marker" aria-hidden="true"></span>
