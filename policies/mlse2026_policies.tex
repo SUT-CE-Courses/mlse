@@ -1,0 +1,118 @@
+\documentclass[a4paper,11pt]{article}
+
+\usepackage{amsmath,amsfonts,amssymb}
+\usepackage{graphicx}
+\usepackage{float}
+\usepackage{tabularx}
+\usepackage{setspace}
+\usepackage{enumitem}
+\usepackage[
+    colorlinks=true,
+    linkcolor=blue,
+    urlcolor=blue,
+    citecolor=blue
+]{hyperref}
+
+% تنظیم حاشیه‌های صفحه برای صفحه‌بندی متوازن و تک‌صفحه‌ای
+\usepackage{geometry}
+\geometry{
+    top=1.8cm,
+    bottom=1.8cm,
+    left=2cm,
+    right=2cm
+}
+
+% فراخوانی بسته زی‌پرشین (همواره آخرین بسته)
+\usepackage{xepersian}
+
+% تنظیم فونت‌ها از پوشه محلی fonts
+\settextfont[Path="./fonts/", Scale=0.98, BoldFont=XBZarbold.ttf]{XBZar.ttf}
+\setlatintextfont[Path="./fonts/", BoldFont=georgiabold.ttf]{TimesNewRoman.ttf}
+
+% تنظیمات فاصله‌گذاری لیست‌ها
+\setlist[enumerate]{
+    topsep=0.25em,
+    itemsep=0.45em,
+    parsep=0.08em,
+    leftmargin=*,
+    rightmargin=0em
+}
+
+\begin{document}
+
+% -------------------- سربرگ رسمی --------------------
+\centerline{بسم الله الرحمن الرحیم}
+\parindent=0em
+\vspace{0.2em}
+
+\begin{minipage}[t]{0.35\textwidth}
+    \begin{flushright}
+        \IfFileExists{sharif_logo.png}{%
+            \includegraphics[width=1.8cm, height=1.8cm]{sharif_logo.png}\\[0.15em]
+        }{%
+            \vspace{1.8cm}\\[0.15em]
+        }
+        {\scriptsize\bf دانشگاه صنعتی شریف} \\
+        {\scriptsize\bf دانشکده‌ی مهندسی کامپیوتر}
+    \end{flushright}
+\end{minipage}%
+\hfill
+\begin{minipage}[t]{0.55\textwidth}
+    \begin{flushleft}
+        {\Large\bf مهندسی سیستم‌های یادگیری ماشین} \\[0.25em]
+        {\small\bf نیم‌سال اول ۰۶--۱۴۰۵} \\[0.25em]
+        {\small مدرس: دکتر مریم رمضانی}
+    \end{flushleft}
+\end{minipage}
+
+\vspace{0.35cm}
+\hrule height .1em
+\vspace{1.5mm}
+\centerline{\large\bf شیوه‌نامه و قوانین درس مهندسی سیستم‌های یادگیری ماشین}
+\vspace{1.5mm}
+\hrule height .05em
+\vspace{0.3cm}
+
+% -------------------- بندهای مقررات درس --------------------
+\begin{enumerate}[label=\textbf{\arabic*.}]
+    \item تقویم آموزشی، زمان‌بندی جلسات، مهلت ارسال تمرین‌ها و پروژه‌ها، و کارنامه نمرات درس از طریق \href{https://docs.google.com/spreadsheets/d/1Uwf9ALhFvDw-EpCf7Jm9pl4OP4Iqzum-A597koQE-sA/edit?usp=sharing}{شیت رسمی نمرات و زمان‌بندی} و \href{https://sut-ce-courses.github.io/mlse/}{وبگاه درس} به‌صورت مستمر به‌روزرسانی می‌شود. لازم است دانشجویان گرامی این صفحات را به‌طور منظم دنبال نمایند.
+
+    \item کلیه اطلاعیه‌های آموزشی، دریافت صورت تکالیف، ارسال پاسخ‌ها و تالار پرسش‌وپاسخ منحصراً از طریق \href{https://quera.org/course/add_to_course/course/29353/}{سامانه کوئرا} مدیریت می‌شود. پرسش‌های درسی و فنی خود را در تالار کوئرا مطرح نمایید.
+
+    \item ساختار ارزیابی و توزیع بارم‌بندی درس به شرح جدول زیر می‌باشد:
+    \begin{center}
+        \renewcommand{\arraystretch}{1.15}
+        \begin{tabular}{|p{3cm}|p{6.5cm}|}
+            \hline
+            \centering \textbf{نمره (از ۲۰)} & \centering \textbf{نوع ارزیابی} \tabularnewline
+            \hline
+            \centering ۵ & \centering تمرین‌های نظری و پروژه‌های عملی \tabularnewline
+            \hline
+            \centering ۳ & \centering مینی‌پژوهش (ایده، پیاده‌سازی، گزارش) \tabularnewline
+            \hline
+            \centering ۵ & \centering آزمون میان‌ترم \tabularnewline
+            \hline
+            \centering ۷ & \centering آزمون پایان‌ترم \tabularnewline
+            \hline
+            \hline
+            \centering ۲۰ & \centering مجموع \tabularnewline
+            \hline
+        \end{tabular}
+    \end{center}
+
+    \item با توجه به تفاوت در ماهیت و حجم تکالیف، سهم هر تمرین نظری یا پروژه عملی در بارم نهایی لزوماً یکسان نبوده و متناسب با گستردگی آن در صورت تکلیف مشخص خواهد شد.
+
+    \item به منظور مدیریت رخدادهای پیش‌بینی‌نشده در طول ترم، در مجموع \textbf{۶ روز مهلت تاخیر مجاز} برای ارسال تکالیف در نظر گرفته شده است. برای هر تمرین نظری یا پروژه عملی، \textbf{حداکثر ۲ روز} امکان استفاده از تاخیر مجاز وجود دارد و این سقف غیرقابل افزایش است. در تکالیف منتهی به آزمون‌های درس، ممکن است به دلیل لزوم انتشار به‌موقع پاسخ‌نامه، سقف تاخیر محدودتر شود.
+
+    \item محاسبه ساعت تاخیر خطی نبوده و در راستای حفظ سلامت دانشجویان، ارسال تکلیف در بازه زمانی ۱ بامداد تا ۱۲ ظهر، معادل ارسال در ساعت ۱۲ ظهر در نظر گرفته شده و کل بازه در مصرف تاخیر محاسبه می‌شود؛ لذا شب‌بیداری، صرفه‌جویی در تاخیر ایجاد نخواهد کرد.
+
+    \item بارگذاری تکالیف صرفاً از طریق کوئرا انجام می‌پذیرد. پاسخ تمرین‌های نظری الزاماً باید به‌صورت دست‌نویس تحویل داده شود و هیچ تمرین نظری تایپ‌شده‌ای به هیچ نحوی تصحیح نخواهد شد. همچنین برای بخش‌های عملی و پروژه‌ها، جلسات ارزیابی حضوری یا آنلاین برگزار خواهد شد که حضور دانشجو و تسلط بر کد پیاده‌سازی‌شده الزامی است.
+
+    \item ثبت‌نام در این درس به منزله پذیرش منشور اخلاقی دانشکده و آیین‌نامه‌های مصوب است. چارچوب مجاز بهره‌گیری از ابزارهای هوش مصنوعی مولد بر اساس \href{https://ac.sharif.edu/rules/ai-ethics}{\textbf{آداب‌نامه استفاده از ابزار هوش مصنوعی}} خواهد بود و هرگونه کاربرد آن باید به صراحت ذکر و شفاف‌سازی شود.
+
+    \item \textbf{رعایت امانت‌داری علمی الزامی است. در صورت اثبات هرگونه تقلب (کپی کد یا پاسخ از دیگران، منابع اینترنتی یا ... بدون ارجاع)، مطابق ضوابط انضباطی با فرد خاطی برخورد قاطع خواهد شد.}
+
+    \item در صورت بروز هرگونه شرایط یا مشکل خاص در طول ترم، موضوع را در همان زمان وقوع با مدرس درس یا سردستیار در میان بگذارید تا تمهیدات لازم بررسی شود.
+\end{enumerate}
+
+\end{document}

@@ -7,8 +7,8 @@
 
 - title: "Home"
   url: "/"
-- title: "Lectures"
-  url: "/lectures/"
+- title: "Slides"
+  url: "/slides/"
 - title: "Homework & Exams"
   url: "/homework/"
 - title: "Resources"

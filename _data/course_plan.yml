@@ -39,62 +39,62 @@ topics:
       - "1405-08-19"
   - topic_order: 6
     dates:
-      - "1405-08-24"
+      - "1405-08-26"
   - topic_order: 7
     dates:
-      - "1405-08-26"
+      - "1405-09-01"
   - topic_order: 8
     dates:
-      - "1405-09-01"
+      - "1405-09-03"
   - topic_order: 9
     dates:
-      - "1405-09-03"
+      - "1405-09-08"
   - topic_order: 10
     dates:
-      - "1405-09-08"
+      - "1405-09-10"
   - topic_order: 11
     dates:
-      - "1405-09-10"
+      - "1405-09-15"
   - topic_order: 12
     dates:
-      - "1405-09-15"
+      - "1405-09-17"
   - topic_order: 13
     dates:
-      - "1405-09-17"
+      - "1405-09-22"
   - topic_order: 14
     dates:
-      - "1405-09-22"
+      - "1405-09-24"
   - topic_order: 15
     dates:
-      - "1405-09-24"
+      - "1405-09-29"
   - topic_order: 16
     dates:
-      - "1405-09-29"
+      - "1405-10-01"
   - topic_order: 17
     dates:
-      - "1405-10-01"
+      - "1405-10-08"
   - topic_order: 18
     dates:
-      - "1405-10-08"
+      - "1405-10-13"
   - topic_order: 19
     dates:
-      - "1405-10-13"
+      - "1405-10-15"
   - topic_order: 20
     dates:
-      - "1405-10-15"
+      - "1405-10-20"
   - topic_order: 21
     dates:
-      - "1405-10-20"
+      - "1405-10-22"
   - topic_order: 22
     dates:
-      - "1405-10-22"
+      - "1405-10-27"
   - topic_order: 23
     dates:
-      - "1405-10-27"
+      - "1405-10-29"
 coursework:
   - slug: "theory-1"
-    release: "1405-08-26"
-    due: "1405-09-09"
+    release: "1405-09-01"
+    due: "1405-09-13"
   - slug: "theory-2"
     release: "1405-10-13"
     due: "1405-10-26"

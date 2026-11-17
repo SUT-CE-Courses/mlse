@@ -6,6 +6,12 @@ vendor/
 .bundle/
 *.log
 .DS_Store
+*.aux
+*.fls
+*.fdb_latexmk
+*.synctex.gz
+*.xdv
+*.out
 
 # Not needed for production
 .agents/

@@ -76,3 +76,5 @@ exclude:
   - .github/
   - docker-compose.yml
   - Dockerfile
+  - content_syllabus.md
+  - policies/

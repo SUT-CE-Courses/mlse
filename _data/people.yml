@@ -67,6 +67,10 @@ tas:
     email: "applest.ariamoosavi@gmail.com"
     photo: "/assets/images/people/mousavi.png"
 
+  - name: "Kasra Sheikhi"
+    role: "Teaching Assistant"
+    photo: "/assets/images/people/sheikhi.png"
+
   - name: "Mohammad Javad Papizadeh"
     role: "Teaching Assistant"
     email: "mj.papizadeh@ut.ac.ir"
