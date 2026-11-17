@@ -1,0 +1,11 @@
+# SLIDES: Course slide presentations available for download.
+# Files are stored in assets/slides/
+
+- order: 1
+  title: "Introduction"
+  file: "/assets/slides/01-Introduction.pdf"
+
+- order: 2
+  title: "ML System Development Life Cycle"
+  file: "/assets/slides/02_ML_System_Development_Life_Cycle.pdf"
+
