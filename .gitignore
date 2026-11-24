@@ -12,13 +12,3 @@ vendor/
 *.synctex.gz
 *.xdv
 *.out
-
-# Not needed for production
-.agents/
-.claude/
-.codex/
-.impeccable/
-DESIGN.md
-PRODUCT.md
-skills-lock.json
-content_syllabus.md
