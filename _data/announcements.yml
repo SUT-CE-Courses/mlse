@@ -8,6 +8,11 @@
 #     content: "Sunday 6 Dey, 13:30 - 15:00." # optional text under the headline
 #     url: "/homework/"            # optional; makes the headline a link
 
+- date: "1405-09-03"
+  title: "Lecture 3 Slides Uploaded"
+  content: "Slides for Database and Data Warehouse are now available for download on the Slides page."
+  url: "/slides/"
+
 - date: "1405-08-26"
   title: "Lecture 2 Slides Uploaded"
   content: "Slides for ML System Development Life Cycle are now available for download on the Slides page."
