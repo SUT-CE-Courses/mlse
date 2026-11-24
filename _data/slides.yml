@@ -9,3 +9,7 @@
   title: "ML System Development Life Cycle"
   file: "/assets/slides/02_ML_System_Development_Life_Cycle.pdf"
 
+- order: 3
+  title: "Database and Data Warehouse"
+  file: "/assets/slides/03-Database_and_Data_Warehouse.pdf"
+
